@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stationary Items</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      min-height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 28px;
+      background-color: #f1f1f1;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .product-card {
+      background-color: #fafafa;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h2 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    footer {
+      background-color: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Title -->
+  <div class="title">Stationary Items</div>
+
+  <!-- Centered Product Section -->
+  <div class="main-content">
+    <div class="product-container">
+      <!-- Notebook -->
+      <div class="product-card">
+        <img src="https://www.officewarehouse.com.ph/__resources/_web_data_/products/products/images/6945.jpg" alt="Notebook" />
+        <h2>Notebook (A4)</h2>
+        <p>₹80</p>
+      </div>
+
+      <!-- Pen Pack -->
+      <div class="product-card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/BQ/VX/QT/3553409/4-14--500x500.jpg" alt="Pen Pack" />
+        <h2>Ball Pen - 10 Pack</h2>
+        <p>₹60</p>
+      </div>
+
+      <!-- School Bag -->
+      <div class="product-card">
+        <img src="https://safaribags.com/cdn/shop/files/Wing-16_BP_N_Blue_02.jpg?v=1707721461" alt="School Bag" />
+        <h2>School Bag</h2>
+        <p>₹499</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Meesho Clone | All Rights Reserved
+  </footer>
+</body>
+</html>

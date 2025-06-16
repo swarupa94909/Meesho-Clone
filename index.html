@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome - Meesho Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #e91e63;
+      padding: 10px 0 5px;
+      color: white;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      font-size: 16px;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+
+    .cart-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .delivery-location {
+      text-align: center;
+      font-size: 14px;
+      padding: 5px;
+      background-color: #f8b8c8;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+
+    .nav-item {
+      text-align: center;
+      margin: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-item img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 auto 5px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .login-btn {
+      background-color: white;
+      color: #e91e63;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .subtext {
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+
+    .adv-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 0 40px
+      margin-top:auto;
+    }
+
+    .section {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+      margin: 20px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      color: #e91e63;
+      margin-bottom: 15px;
+    }
+
+    .section ul {
+      font-size: 18px;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .nav-item span {
+        font-size: 16px;
+      }
+
+      .nav-item img {
+        width: 40px;
+        height: 40px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .section h2 {
+        font-size: 24px;
+      }
+
+      .section ul {
+        font-size: 16px;
+      }
+
+      .login-btn {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Top user and cart -->
+    <div class="top-bar">
+      <div class="username">👤 Welcome, Jeeva</div>
+      <div class="cart-icon">🛒 Cart</div>
+    </div>
+
+    <!-- Delivery info -->
+    <div class="delivery-location">
+      Delivering to: old madivada, Banglore 📍
+    </div>
+
+    <!-- Navigation bar -->
+    <nav>
+      <a href="Women Kurtis.html" class="nav-item">
+        <img src="https://images.meesho.com/images/products/357720572/dbhw3_512.webp" alt="Women Kurtis" />
+        <span>Women Kurtis</span>
+      </a>
+      <a href="stationary.html" class="nav-item">
+        <img src="https://5.imimg.com/data5/YL/RI/OR/SELLER-95604177/stationeries-500x500-png-500x500.png" alt="Stationary" />
+        <span>Stationary</span>
+      </a>
+      <a href="smartphones.html" class="nav-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgDdDc1yxJIHShCRi5hx9Hrj-FbZI7PUKUsg&s" alt="Smartphones" />
+        <span>Smartphones</span>
+      </a>
+      <a href="grocery.html" class="nav-item">
+        <img src="https://web.bharatnxt.in/wp-content/uploads/2024/05/6_How-to-Start-a-Grocery-Store-in-India_.png" alt="Grocery" />
+        <span>Grocery</span>
+      </a>
+      <a href="contact.html" class="nav-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdnOnOVPzbsemkgOVe8aJuDXqhO7Nn2_PBfw&s" alt="Contact Us" />
+        <span>Contact Us</span>
+      </a>
+      <button class="login-btn" onclick="window.location.href='login.html'">Login / Signup</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to Meesho Clone</h1>
+    <p class="subtext">🛍️ Shop the best deals on Women kurtis , Stationary, Smartphones, Grocery, and more!</p>
+
+  <div class="adv-container">
+      <div class="section">
+        <h2>Advantages:</h2>
+        <ul>
+          <li>Convenient shopping from anywhere, anytime</li>
+          <li>Wider range of products</li>
+          <li>Easy price comparison</li>
+          <li>Lower operational costs</li>
+          <li>Increased reach and accessibility</li>
+        </ul>
+      </div>
+  </main>
+
+  <footer>
+    © 2025 Meesho Clone. All rights reserved.
+  </footer>
+
+</body>
+</html>

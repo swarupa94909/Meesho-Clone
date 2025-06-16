@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grocery Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .grocery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .grocery-item {
+      width: 150px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .grocery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .item-name {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .item-price,
+    .item-weight {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Grocery Store</h1>
+  <div class="grocery-grid">
+    <div class="grocery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apples">
+      <div class="item-name">Apples</div>
+      <div class="item-price">₹80</div>
+      <div class="item-weight">1 kg</div>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas">
+      <div class="item-name">Bananas</div>
+      <div class="item-price">₹40</div>
+      <div class="item-weight">1 dozen</div>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="Tomatoes">
+      <div class="item-name">Tomatoes</div>
+      <div class="item-price">₹30</div>
+      <div class="item-weight">1 kg</div>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg" alt="Potatoes">
+      <div class="item-name">Potatoes</div>
+      <div class="item-price">₹25</div>
+      <div class="item-weight">1 kg</div>
+    </div>
+  </div>
+</body>
+</html>  
+
+
