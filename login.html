@@ -48,6 +48,15 @@
       font-size: 16px;
     }
 
+    .center-btn {
+      display: flex;
+      justify-content: center;
+    }
+
+    .center-btn button {
+      width: 50%;
+    }
+
     button {
       padding: 12px;
       background-color: #e91e63;
@@ -77,21 +86,45 @@
       text-decoration: underline;
     }
   </style>
-  <script defer src="js/validations.js"></script>
 </head>
 <body>
   <div class="container">
-    <h2>Login</h2>
+    <h2>Login with OTP</h2>
+
     <form id="loginForm">
-      <label for="loginEmail">Email:</label>
-      <input type="email" id="loginEmail" name="loginEmail" required />
+      <div id="mobileStep">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required />
+        <div class="center-btn">
+          <button type="button" onclick="showOTP()">Send OTP</button>
+        </div>
+      </div>
 
-      <label for="loginPassword">Password:</label>
-      <input type="password" id="loginPassword" name="loginPassword" required />
-
-      <button type="submit">Login</button>
+      <div id="otpStep" style="display: none;">
+        <label for="otp">Enter OTP:</label>
+        <input type="text" id="otp" name="otp" placeholder="Enter OTP" required />
+        <button type="submit">Verify OTP</button>
+      </div>
     </form>
+
     <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
   </div>
+
+  <script>
+    function showOTP() {
+      const mobileInput = document.getElementById("mobile");
+      const mobile = mobileInput.value.trim();
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      alert("OTP sent to " + mobile);
+
+      document.getElementById("mobileStep").style.display = "none";
+      document.getElementById("otpStep").style.display = "block";
+    }
+  </script>
 </body>
 </html>

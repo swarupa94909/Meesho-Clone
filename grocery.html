@@ -7,13 +7,44 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      margin: 0;
       background-color: #f0f0f5;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #e91e63;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
     }
 
     h1 {
       text-align: center;
       color: #333;
+      margin-top: 30px;
     }
 
     .grocery-grid {
@@ -21,21 +52,28 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      padding: 20px;
     }
 
     .grocery-item {
-      width: 150px;
+      width: 160px;
       background-color: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 10px;
       text-align: center;
       box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .grocery-item:hover {
+      transform: scale(1.03);
     }
 
     .grocery-item img {
       width: 100%;
-      height: auto;
+      height: 100px;
+      object-fit: cover;
       border-radius: 8px;
     }
 
@@ -51,16 +89,58 @@
       color: #666;
       margin-top: 4px;
     }
+
+    .add-cart-btn {
+      margin-top: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .add-cart-btn:hover {
+      background-color: #d0175a;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .grocery-item {
+        width: 45%;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Top navigation bar -->
+  <div class="top-bar">
+    <div class="logo">Meesho</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Women Kurtis.html">Women Kurtis</a>
+      <a href="stationary.html">Stationary</a>
+      <a href="smartphones.html">Smartphones</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </div>
+
   <h1>Grocery Store</h1>
   <div class="grocery-grid">
+    <!-- Items List -->
     <div class="grocery-item">
       <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apples">
       <div class="item-name">Apples</div>
       <div class="item-price">₹80</div>
       <div class="item-weight">1 kg</div>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
 
     <div class="grocery-item">
@@ -68,6 +148,7 @@
       <div class="item-name">Bananas</div>
       <div class="item-price">₹40</div>
       <div class="item-weight">1 dozen</div>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
 
     <div class="grocery-item">
@@ -75,6 +156,7 @@
       <div class="item-name">Tomatoes</div>
       <div class="item-price">₹30</div>
       <div class="item-weight">1 kg</div>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
 
     <div class="grocery-item">
@@ -82,9 +164,81 @@
       <div class="item-name">Potatoes</div>
       <div class="item-price">₹25</div>
       <div class="item-weight">1 kg</div>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://perfarmersglobal.in/wp-content/uploads/2023/10/71xBN6MxBJL._AC_UF10001000_QL80_.jpg" alt="Beans">
+      <div class="item-name">Green Beans</div>
+      <div class="item-price">₹60</div>
+      <div class="item-weight">500 g</div>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://c.ndtvimg.com/2021-05/j6ab24bg_carrots_625x300_04_May_21.jpg" alt="Carrots">
+      <div class="item-name">Carrots</div>
+      <div class="item-price">₹50</div>
+      <div class="item-weight">1 kg</div>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://media.post.rvohealth.io/wp-content/uploads/2023/09/ginger-root-still-life-1296x728-header.jpg" alt="Ginger">
+      <div class="item-name">Ginger</div>
+      <div class="item-price">₹70</div>
+      <div class="item-weight">250 g</div>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh_9QyHAYPmXL9GY78ZgiWfDHEZQ8FCzuibQ&s" alt="Garlic">
+      <div class="item-name">Garlic</div>
+      <div class="item-price">₹90</div>
+      <div class="item-weight">500 g</div>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="grocery-item">
+      <img src="https://urjaseeds.com/cdn/shop/products/cucumber-seeds-malaysia-t103m.jpg?v=1591175147" alt="Cucumber">
+      <div class="item-name">Cucumber</div>
+      <div class="item-price">₹35</div>
+      <div class="item-weight">1 kg</div>
+      <button class="add-cart-btn">Add to Cart</button>
     </div>
   </div>
+
+  <footer>
+    &copy; 2025 Meesho Clone | All Rights Reserved
+  </footer>
+
+  <script>
+  const addToCartButtons = document.querySelectorAll('.add-cart-btn');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.grocery-item');
+      const name = item.querySelector('.item-name').innerText;
+      const price = item.querySelector('.item-price').innerText;
+      const image = item.querySelector('img').src;
+
+      const product = { name, price, image };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const index = cart.findIndex(item => item.name === product.name);
+      if (index !== -1) {
+        cart[index].quantity = (cart[index].quantity || 1) + 1;
+      } else {
+        product.quantity = 1;
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    });
+  });
+</script>
+
 </body>
-</html>  
-
-
+</html>

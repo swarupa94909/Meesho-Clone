@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome - Meesho Clone</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
   <style>
     body {
       margin: 0;
@@ -31,6 +36,7 @@
 
     .username {
       font-weight: bold;
+      cursor: pointer;
     }
 
     .cart-icon {
@@ -43,6 +49,14 @@
       font-size: 14px;
       padding: 5px;
       background-color: #f8b8c8;
+    }
+
+    .delivery-location select {
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: none;
+      margin-left: 10px;
     }
 
     nav {
@@ -102,32 +116,112 @@
       margin-bottom: 50px;
     }
 
-    .adv-container {
+    .featured-products {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .featured-products h2 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .product-grid {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
-      padding: 0 40px
-      margin-top:auto;
+      gap: 20px;
     }
 
-    .section {
-      flex: 1;
-      min-width: 300px;
-      max-width: 600px;
-      margin: 20px;
+    .product-grid img {
+      width: 180px;
+      height: 180px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
 
-    .section h2 {
+    .product-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .why-shop {
+      background-color: #ffe4ec;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .why-shop h2 {
       font-size: 28px;
       color: #e91e63;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .section ul {
+    .why-shop ul {
+      list-style: none;
       font-size: 18px;
-      text-align: left;
-      padding-left: 20px;
+      padding: 0;
+      color: #333;
     }
+
+    .why-shop li {
+      margin: 10px 0;
+    }
+
+    .promo-banner {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .promo-banner img {
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section img {
+  width: 90%;
+  border-radius: 15px;
+  margin: 20px auto 20px;
+  display: block;
+}
+
+.hero-text {
+  background: rgba(255, 255, 255, 0.95);
+  display: inline-block;
+  padding: 25px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  margin: 0;
+  color: #e91e63;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #e91e63;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
 
     footer {
       background-color: #e91e63;
@@ -155,11 +249,12 @@
         font-size: 28px;
       }
 
-      .section h2 {
+      .featured-products h2,
+      .why-shop h2 {
         font-size: 24px;
       }
 
-      .section ul {
+      .why-shop ul {
         font-size: 16px;
       }
 
@@ -172,24 +267,118 @@
         flex-direction: column;
         gap: 5px;
       }
+
+      .hero-text {
+        font-size: 14px;
+        margin-top: -60px;
+        padding: 15px 20px;
+      }
+      .newsletter {
+        background-color: #fef3f8;
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 2px solid #e91e63;
+        border-bottom: 2px solid #e91e63;
+        margin: 40px auto;
+        border-radius: 20px;
+        max-width: 700px;
+     }
+
+    .newsletter h2 {
+       color: #e91e63;
+       font-size: 28px;
+       margin-bottom: 10px;
     }
+
+    .newsletter p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+   }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+      .newsletter input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .newsletter button {
+        padding: 10px 20px;
+       background-color: #e91e63;
+       color: white;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+     }
+
+     .newsletter button:hover {
+       background-color: #d81b60;
+     }
+
+     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Top user and cart -->
     <div class="top-bar">
-      <div class="username">👤 Welcome, Jeeva</div>
-      <div class="cart-icon">🛒 Cart</div>
+      <div class="username" onclick="window.location.href='profile.html'">
+        👤 Welcome, <span id="userName">User</span>
+      </div>
+      <div class="cart-icon" onclick="window.location.href='cart.html'">🛒 Cart</div>
     </div>
 
-    <!-- Delivery info -->
     <div class="delivery-location">
-      Delivering to: old madivada, Banglore 📍
+      Delivering to:
+      <select id="deliverySelect">
+  <option>Delhi</option>
+  <option>Mumbai, Maharashtra</option>
+  <option>Bangalore, Karnataka</option>
+  <option>Hyderabad, Telangana</option>
+  <option>Chennai, Tamil Nadu</option>
+  <option>Kolkata, West Bengal</option>
+  <option>Pune, Maharashtra</option>
+  <option>Ahmedabad, Gujarat</option>
+  <option>Jaipur, Rajasthan</option>
+  <option>Surat, Gujarat</option>
+  <option>Lucknow, Uttar Pradesh</option>
+  <option>Kanpur, Uttar Pradesh</option>
+  <option>Nagpur, Maharashtra</option>
+  <option>Indore, Madhya Pradesh</option>
+  <option>Bhopal, Madhya Pradesh</option>
+  <option>Thane, Maharashtra</option>
+  <option>Visakhapatnam, Andhra Pradesh</option>
+  <option>Patna, Bihar</option>
+  <option>Ludhiana, Punjab</option>
+  <option>Agra, Uttar Pradesh</option>
+  <option>Nashik, Maharashtra</option>
+  <option>Vadodara, Gujarat</option>
+  <option>Amritsar, Punjab</option>
+  <option>Coimbatore, Tamil Nadu</option>
+  <option>Kochi, Kerala</option>
+  <option>Trivandrum, Kerala</option>
+  <option>Mysore, Karnataka</option>
+  <option>Ranchi, Jharkhand</option>
+  <option>Bhubaneswar, Odisha</option>
+  <option>Dehradun, Uttarakhand</option>
+  <option>Jodhpur, Rajasthan</option>
+  <option>Raipur, Chhattisgarh</option>
+  <option>Guwahati, Assam</option>
+  <option>Madurai, Tamil Nadu</option>
+  <option>Jamshedpur, Jharkhand</option>
+</select>
+
+      📍
     </div>
 
-    <!-- Navigation bar -->
     <nav>
       <a href="Women Kurtis.html" class="nav-item">
         <img src="https://images.meesho.com/images/products/357720572/dbhw3_512.webp" alt="Women Kurtis" />
@@ -217,24 +406,69 @@
 
   <main>
     <h1>Welcome to Meesho Clone</h1>
-    <p class="subtext">🛍️ Shop the best deals on Women kurtis , Stationary, Smartphones, Grocery, and more!</p>
+    <p class="subtext">🛍️ Shop the best deals on Women kurtis, Stationary, Smartphones, Grocery, and more!</p>
 
-  <div class="adv-container">
-      <div class="section">
-        <h2>Advantages:</h2>
-        <ul>
-          <li>Convenient shopping from anywhere, anytime</li>
-          <li>Wider range of products</li>
-          <li>Easy price comparison</li>
-          <li>Lower operational costs</li>
-          <li>Increased reach and accessibility</li>
-        </ul>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img src="https://i.ytimg.com/vi/2RKAoC8xxuc/maxresdefault.jpg" alt="Hero Banner">
+
+      <div class="hero-text">
+        <h1>Style That Speaks</h1>
+        <p>Discover affordable fashion in ethnic wear, accessories & more</p>
+        <a href="Women%20Kurtis.html" class="hero-btn">Shop Now</a>
       </div>
+    </section>
+
+    <div class="why-shop">
+      <h2>💡 Why Shop With Us?</h2>
+      <ul>
+        <li>🚚 Free & Fast Delivery</li>
+        <li>💰 Affordable Prices</li>
+        <li>🔐 Secure Payments</li>
+        <li>🛍️ Wide Product Range</li>
+        <li>📞 24/7 Support</li>
+      </ul>
+    </div>
+
+    <!-- Newsletter / Join Us CTA -->
+    <section class="newsletter" data-aos="fade-up">
+      <h2>📧 Join 10,000+ Smart Shoppers</h2>
+      <p>Subscribe now and never miss our exclusive offers & deals!</p>
+      <form onsubmit="event.preventDefault(); showToast();">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
   </main>
 
   <footer>
     © 2025 Meesho Clone. All rights reserved.
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <script>
+       AOS.init();
+
+       function showToast() {
+    Toastify({
+      text: "✅ Thanks for subscribing!",
+      duration: 3000,
+      gravity: "top",
+      position: "center",
+      backgroundColor: "#e91e63",
+      className: "subscribe-toast"
+    }).showToast();
+  }
+
+  // ✅ Fetch name from localStorage and display
+    const savedName = localStorage.getItem("profileName");
+    if (savedName && savedName.trim()) {
+      document.getElementById("userName").textContent = savedName;
+    }
+
+  </script>
 </body>
-</html>
+</html> 

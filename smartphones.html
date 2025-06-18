@@ -25,9 +25,6 @@
 
     header {
       background-color: #e91e63;
-    }
-
-    .navbar {
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -37,7 +34,7 @@
 
     .logo {
       color: white;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
     }
 
@@ -51,6 +48,11 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      font-size: 16px;
+    }
+
+    .nav-links li a:hover {
+      text-decoration: underline;
     }
 
     main {
@@ -100,6 +102,20 @@
       font-size: 16px;
       color: #333;
     }
+    .add-to-cart {
+      margin-top: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-to-cart:hover {
+      background-color: #d0175d;
+    }
 
     footer {
       background-color: #e91e63;
@@ -111,6 +127,21 @@
   </style>
 </head>
 <body>
+
+  <!-- ✅ HEADER -->
+  <header>
+    <div class="logo">Meesho</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Women Kurtis.html">Women Kurtis</a></li>
+      <li><a href="stationary.html">Stationery</a></li>
+      <li><a href="grocery.html">Grocery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </header>
+
+  <!-- ✅ MAIN CONTENT -->
   <main>
     <section class="category">
       <h1>Smart Phones</h1>
@@ -119,23 +150,135 @@
           <img src="https://inspireonline.in/cdn/shop/files/iPhone_14_Blue_PDP_Image_Position-2__WWEN.jpg?v=1691420929&width=823" alt="iPhone 14" />
           <h3>iPhone 14</h3>
           <p>₹79,999</p>
+          <button class="add-to-cart"
+            data-name="iPhone 14"
+            data-price="79999"
+            data-image="https://inspireonline.in/cdn/shop/files/iPhone_14_Blue_PDP_Image_Position-2__WWEN.jpg?v=1691420929&width=823">
+            Add to Cart
+          </button>
         </div>
         <div class="product-card">
           <img src="https://images.samsung.com/is/image/samsung/p6pim/sa_en/2202/feature/sa_en-feature---531409759?$FB_TYPE_A_MO_JPG$" alt="Samsung Galaxy A53" />
           <h3>Samsung Galaxy A53</h3>
           <p>₹28,499</p>
+          <button class="add-to-cart"
+            data-name="Samsung Galaxy A53"
+            data-price="28,499"
+            data-image="https://images.samsung.com/is/image/samsung/p6pim/sa_en/2202/feature/sa_en-feature---531409759?$FB_TYPE_A_MO_JPG$">
+            Add to Cart
+          </button>
         </div>
         <div class="product-card">
           <img src="https://sathya.in/media/91213/catalog/sunrisegold1.jpg" alt="Redmi Note 12" />
           <h3>Redmi Note 12</h3>
           <p>₹16,999</p>
+          <button class="add-to-cart"
+            data-name="Redmi Note 12"
+            data-price="16,999"
+            data-image="https://sathya.in/media/91213/catalog/sunrisegold1.jpg">
+            Add to Cart
+          </button>
         </div>
+        <div class="product-card">
+        <img src="https://cdn.beebom.com/mobile/realme-narzo-60x-5g-front-and-back-2.png" alt="Realme Narzo 60x" />
+        <h3>Realme Narzo 60x</h3>
+        <p>₹12,499</p>
+        <button class="add-to-cart"
+            data-name="Realme Narzo 60x"
+            data-price="12,499"
+            data-image="https://cdn.beebom.com/mobile/realme-narzo-60x-5g-front-and-back-2.png">
+            Add to Cart
+          </button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81CMdgkIULL.jpg" alt="Motorola G73 5G" />
+        <h3>Motorola G73 5G</h3>
+        <p>₹16,999</p>
+        <button class="add-to-cart"
+            data-name="Motorola G73 5G"
+            data-price="16,999"
+            data-image="https://m.media-amazon.com/images/I/81CMdgkIULL.jpg">
+            Add to Cart
+          </button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51g5AuSsiYL.jpg" alt="OnePlus Nord CE 3 Lite" />
+        <h3>OnePlus Nord CE 3 Lite</h3>
+        <p>₹19,999</p>
+        <button class="add-to-cart"
+            data-name="OnePlus Nord CE 3 Lite"
+            data-price="19,999"
+            data-image="https://m.media-amazon.com/images/I/51g5AuSsiYL.jpg">
+            Add to Cart
+          </button>
+      </div>
+      <div class="product-card">
+      <img src="https://cdn.beebom.com/mobile/2023/10/Untitled-design-36-1.png" alt="Infinix Zero 30 5G" />
+      <h3>Infinix Zero 30 5G</h3>
+      <p>₹17,999</p>
+      <button class="add-to-cart"
+            data-name="Infinix Zero 30 5G"
+            data-price="17,999"
+            data-image="https://cdn.beebom.com/mobile/2023/10/Untitled-design-36-1.png">
+            Add to Cart
+          </button>
+      </div>
+
+      <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/717Ub8Vi5jL.jpg" alt="Vivo T2 5G" />
+      <h3>Vivo T2 5G</h3>
+      <p>₹14,999</p>
+      <button class="add-to-cart"
+            data-name="Vivo T2 5G"
+            data-price="14,999"
+            data-image="https://m.media-amazon.com/images/I/717Ub8Vi5jL.jpg">
+            Add to Cart
+          </button>
+      </div>
+
+      <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/51QtB4LJzlL._UF894,1000_QL80_.jpg" alt="POCO X5 Pro 5G" />
+      <h3>POCO X5 Pro 5G</h3>
+      <p>₹22,999</p>
+      <button class="add-to-cart"
+            data-name="POCO X5 Pro 5G"
+            data-price="22,999"
+            data-image="https://m.media-amazon.com/images/I/51QtB4LJzlL._UF894,1000_QL80_.jpg">
+            Add to Cart
+          </button>
+      </div>
       </div>
     </section>
   </main>
 
+  <!-- ✅ FOOTER -->
   <footer>
     © 2025 Meesho Clone | All Rights Reserved
   </footer>
+<script>
+    const cartButtons = document.querySelectorAll('.add-to-cart');
+
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseInt(button.getAttribute('data-price').replace(/,/g, ''));
+        const image = button.getAttribute('data-image');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ name, price, image, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+      });
+    });
+</script>
 </body>
 </html>

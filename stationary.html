@@ -23,6 +23,38 @@
       min-height: 100vh;
     }
 
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .nav-links li a:hover {
+      text-decoration: underline;
+    }
+
     .title {
       text-align: center;
       padding: 20px 0;
@@ -84,27 +116,63 @@
       font-size: 14px;
     }
 
+    .add-to-cart {
+    margin-top: auto;
+    padding: 8px 14px;
+    background-color: #e91e63;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+  }
+
+  .add-to-cart:hover {
+    background-color: #d81b60;
+
     footer {
       background-color: #e91e63;
       color: white;
       text-align: center;
       padding: 12px;
     }
+  }
   </style>
 </head>
 <body>
 
-  <!-- Top Title -->
+  <!-- ✅ Header -->
+  <header>
+    <div class="logo">Meesho</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Women Kurtis.html">Women Kurtis</a></li>
+      <li><a href="smartphones.html">Smartphones</a></li>
+      <li><a href="grocery.html">Grocery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </header>
+
+  <!-- ✅ Page Title -->
   <div class="title">Stationary Items</div>
 
-  <!-- Centered Product Section -->
+  <!-- ✅ Product Section -->
   <div class="main-content">
     <div class="product-container">
       <!-- Notebook -->
       <div class="product-card">
-        <img src="https://www.officewarehouse.com.ph/__resources/_web_data_/products/products/images/6945.jpg" alt="Notebook" />
-        <h2>Notebook (A4)</h2>
+        <img src="https://www.officewarehouse.com.ph/__resources/_web_data_/products/products/images/6945.jpg" alt="NoteBook(A4)" />
+        <h2>NoteBook(A4)</h2>
         <p>₹80</p>
+        <button class="add-to-cart"
+            data-name="NoteBook(A4)"
+            data-price="80"
+            data-image="https://www.officewarehouse.com.ph/__resources/_web_data_/products/products/images/6945.jpg">
+            Add to Cart
+        </button> 
       </div>
 
       <!-- Pen Pack -->
@@ -112,6 +180,12 @@
         <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/BQ/VX/QT/3553409/4-14--500x500.jpg" alt="Pen Pack" />
         <h2>Ball Pen - 10 Pack</h2>
         <p>₹60</p>
+        <button class="add-to-cart"
+            data-name="Ball Pen - 10 Pack"
+            data-price="60"
+            data-image="https://5.imimg.com/data5/SELLER/Default/2023/1/BQ/VX/QT/3553409/4-14--500x500.jpg">
+            Add to Cart
+        </button>
       </div>
 
       <!-- School Bag -->
@@ -119,13 +193,160 @@
         <img src="https://safaribags.com/cdn/shop/files/Wing-16_BP_N_Blue_02.jpg?v=1707721461" alt="School Bag" />
         <h2>School Bag</h2>
         <p>₹499</p>
+        <button class="add-to-cart"
+            data-name="School Bag"
+            data-price="499"
+            data-image="https://safaribags.com/cdn/shop/files/Wing-16_BP_N_Blue_02.jpg?v=1707721461">
+            Add to Cart
+        </button>
       </div>
+      <!-- Geometry Box -->
+    <div class="product-card">
+      <img src="https://images.meesho.com/images/products/302788189/cpbpo_512.webp" alt="Geometry Box" />
+      <h2>Geometry Box</h2>
+      <p>₹120</p>
+      <button class="add-to-cart"
+            data-name="Geometry Box"
+            data-price="120"
+            data-image="https://images.meesho.com/images/products/302788189/cpbpo_512.webp">
+            Add to Cart
+        </button>
     </div>
+
+    <!-- Pencil Pouch -->
+    <div class="product-card">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/364817112/PX/HW/BZ/15977865/angoo-aesthetic-pencil-pouch.jpg" alt="Pencil Pouch" />
+      <h2>Pencil Pouch</h2>
+      <p>₹90</p>
+      <button class="add-to-cart"
+            data-name="Pencil Pouch"
+            data-price="90"
+            data-image="https://5.imimg.com/data5/SELLER/Default/2023/11/364817112/PX/HW/BZ/15977865/angoo-aesthetic-pencil-pouch.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Crayons Set -->
+    <div class="product-card">
+      <img src="https://www.bbassets.com/media/uploads/p/l/40236444_1-navneet-youva-bold-wax-crayon-set-smudge-free-non-toxic.jpg" alt="Crayons Set" />
+      <h2>Crayons - 24 Colors</h2>
+      <p>₹85</p>
+      <button class="add-to-cart"
+            data-name="Crayons - 24 Colors"
+            data-price="85"
+            data-image="https://www.bbassets.com/media/uploads/p/l/40236444_1-navneet-youva-bold-wax-crayon-set-smudge-free-non-toxic.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Whiteboard Markers -->
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/61-X1dBWa0L._UF1000,1000_QL80_.jpg" alt="Markers" />
+      <h2>Whiteboard Markers (Pack of 5)</h2>
+      <p>₹110</p>
+      <button class="add-to-cart"
+            data-name="Whiteboard Markers (Pack of 5)"
+            data-price="110"
+            data-image="https://m.media-amazon.com/images/I/61-X1dBWa0L._UF1000,1000_QL80_.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Ruler Set -->
+    <div class="product-card">
+      <img src="https://images-cdn.ubuy.co.in/65edb686eaf0052f9a554df7-metal-ruler-set-7-inch-ruler-set.jpg" alt="Ruler Set" />
+      <h2>Ruler Set - 4 Pieces</h2>
+      <p>₹45</p>
+      <button class="add-to-cart"
+            data-name="Ruler Set - 4 Pieces"
+            data-price="45"
+            data-image="https://images-cdn.ubuy.co.in/65edb686eaf0052f9a554df7-metal-ruler-set-7-inch-ruler-set.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Highlighter Pens -->
+    <div class="product-card">
+      <img src="https://shop.ourstore.in/wp-content/uploads/2022/11/ourstore-2022-11-04T061305.626.png" alt="Highlighters" />
+      <h2>Highlighters - 5 Shades</h2>
+      <p>₹99</p>
+      <button class="add-to-cart"
+            data-name="Highlighters - 5 Shades"
+            data-price="99"
+            data-image="https://shop.ourstore.in/wp-content/uploads/2022/11/ourstore-2022-11-04T061305.626.png">
+            Add to Cart
+        </button>
+    </div>
+        <!-- Sticky Notes -->
+    <div class="product-card">
+      <img src="https://raipurshop.com/wp-content/uploads/2023/02/sticky-notes-pad-for-notice-board-schools-office-organizations.jpg" alt="Sticky Notes" />
+      <h2>Sticky Notes (Pack of 3)</h2>
+      <p>₹50</p>
+      <button class="add-to-cart"
+            data-name="Sticky Notes (Pack of 3)"
+            data-price="50"
+            data-image="https://raipurshop.com/wp-content/uploads/2023/02/sticky-notes-pad-for-notice-board-schools-office-organizations.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Stapler -->
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/81VadRn+t-L.jpg" alt="Stapler" />
+      <h2>Mini Stapler with Pins</h2>
+      <p>₹75</p>
+      <button class="add-to-cart"
+            data-name="Mini Stapler with Pins"
+            data-price="75"
+            data-image="https://m.media-amazon.com/images/I/81VadRn+t-L.jpg">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Gel Pen Set -->
+    <div class="product-card">
+      <img src="https://images-cdn.ubuy.co.in/635ef20f3f374610394331fd-peacur-48-color-artist-gel-pen-set.jpg" alt="Gel Pen Set" />
+      <h2>Color Gel Pen Set (Pack of 12)</h2>
+      <p>₹150</p>
+     <button class="add-to-cart"
+            data-name="Color Gel Pen Set (Pack of 12)"
+            data-price="150"
+            data-image="https://images-cdn.ubuy.co.in/635ef20f3f374610394331fd-peacur-48-color-artist-gel-pen-set.jpg">
+            Add to Cart
+        </button>
+    </div>
+   </div>
   </div>
 
-  <!-- Footer -->
+  <!-- ✅ Footer -->
   <footer>
     © 2025 Meesho Clone | All Rights Reserved
   </footer>
+
+  <script>
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = {
+        name: button.dataset.name,
+        price: parseFloat(button.dataset.price),
+        image: button.dataset.image,
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingItem = cart.find(cartItem => cartItem.name === item.name);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(item);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${item.name} added to cart!`);
+    });
+  });
+</script>
 </body>
 </html>

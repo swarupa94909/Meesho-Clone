@@ -8,57 +8,259 @@
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }
     body { display: flex; flex-direction: column; min-height: 100vh; }
-    header { background: #e91e63; color: white; padding: 20px; text-align: center; }
+
+    header {
+      background: #e91e63;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .nav-links li a:hover {
+      text-decoration: underline;
+    }
+
     .main { flex: 1; padding: 20px; }
-    .kurtis { 
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #e91e63;
     }
+
+    .kurtis {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
     .card {
-      width: 220px; background: #fff; border: 1px solid #ddd; border-radius: 8px;
-      padding: 10px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 220px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .card img {
-      width: 100%; height: 280px; object-fit: cover; border-radius: 6px;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 6px;
     }
+
     .name { font-weight: bold; margin-top: 10px; }
     .price { color: #333; margin-top: 5px; font-size: 16px; }
-    footer { background: #e91e63; color: white; text-align: center; padding: 15px; }
+
+    .add-to-cart {
+      margin-top: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-to-cart:hover {
+      background-color: #d0175d;
+    }
+
+    footer {
+      background: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Women Kurtis Collection</h1>
+    <div class="logo">Meesho</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stationary.html">Stationary</a></li>
+      <li><a href="smartphones.html">Smartphones</a></li>
+      <li><a href="grocery.html">Grocery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+       </ul>
   </header>
 
   <div class="main">
+    <div class="title">Women Kurtis</div>
     <div class="kurtis">
+
+      <!-- Product 1 -->
       <div class="card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzOfni14lID_X0OAO8w7OzD8fi16aSLL-BOg&s" alt="Cotton Kurti 1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzOfni14lID_X0OAO8w7OzD8fi16aSLL-BOg&s" alt="Embroidered Cotton Kurti">
         <div class="name">Embroidered Cotton Kurti</div>
         <div class="price">₹440</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
+
+      <!-- Product 2 -->
       <div class="card">
-        <img src="https://gunjfashion.com/cdn/shop/files/multicolor-cotton-kurti-and-pant-set-printed-design_1.jpg?v=1719912446" alt="Kurti Set 2">
+        <img src="https://gunjfashion.com/cdn/shop/files/multicolor-cotton-kurti-and-pant-set-printed-design_1.jpg?v=1719912446" alt="Kurti Pant Set">
         <div class="name">Kurti Pant Set</div>
         <div class="price">₹308</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
+
+      <!-- Product 3 -->
       <div class="card">
         <img src="https://cdn.sareesaga.com/image/cache/data18/heavenly-printed-cotton-party-wear-kurti-228186-1000x1375.jpg" alt="Printed Cotton Kurti">
         <div class="name">Printed Cotton Kurti</div>
         <div class="price">₹359</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
+
+      <!-- Product 4 -->
       <div class="card">
         <img src="https://www.suratsuit.in/product-img/Bandhej-Vol-10-Rayon-Print-Wit-1682330026.jpeg" alt="Bandhani Kurti">
         <div class="name">Bandhani Kurti Set</div>
         <div class="price">₹440</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
+
+      <!-- Product 5 -->
+      <div class="card">
+        <img src="https://www.latestkurtidesigns.com/wp-content/uploads/2020/02/white-floral-kurti.jpg" alt="Floral Kurti">
+        <div class="name">Floral Print Kurti</div>
+        <div class="price">₹399</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="card">
+        <img src="https://sukritistore.com/cdn/shop/files/1_3c390880-ad27-471f-bdcb-17018cc6fa1c.jpg?v=1697295854" alt="Rayon Long Kurti">
+        <div class="name">Rayon Long Kurti</div>
+        <div class="price">₹475</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="card">
+        <img src="https://images.meesho.com/images/products/398749659/vnabc_512.webp" alt="Anarkali Kurti">
+        <div class="name">Anarkali Kurti</div>
+        <div class="price">₹520</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="card">
+        <img src="https://bavisclothing.com/cdn/shop/products/pale-silver-slim-fit-straight-cut-embroidered-kurti-206259.webp?v=1698219243" alt="Straight Fit Kurti">
+        <div class="name">Straight Fit Kurti</div>
+        <div class="price">₹330</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="card">
+      <img src="https://desiymien.com/wp-content/uploads/2022/08/4244-1.jpg" alt="Designer Kurti">
+      <div class="name">Designer Kurti</div>
+      <div class="price">₹499</div>
+      <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="card">
+      <img src="https://sukritistore.com/cdn/shop/files/WhatsAppImage2023-06-27at8.43.20AM.jpg?v=1689668883" alt="Cotton Kurti Set">
+      <div class="name">Cotton Kurti Set</div>
+      <div class="price">₹389</div>
+      <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="card">
+      <img src="https://pinkcactii.com/cdn/shop/files/UntitledCapture0562_2466b8b7-58f0-4475-be4f-17123c8819b3.jpg?v=1725623023" alt="Sleeveless Printed Kurti">
+      <div class="name">Sleeveless Printed Kurti</div>
+      <div class="price">₹285</div>
+      <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="card">
+      <img src="https://tarakonline.com/upload/ProductColor/RealImage/2024/04/2491(KI)LHVTL14102(L).jpg" alt="Straight Kurti with Dupatta">
+      <div class="name">Straight Kurti with Dupatta</div>
+      <div class="price">₹550</div>
+      <button class="add-to-cart">Add to Cart</button>
+      </div>
+
     </div>
   </div>
 
   <footer>
     &copy; 2025 Meesho Clone | All Rights Reserved
   </footer>
+  <script>
+  // Get all "Add to Cart" buttons
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
+  addToCartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.card');
+    const name = card.querySelector('.name').innerText;
+    const price = card.querySelector('.price').innerText;
+    const image = card.querySelector('img').src;
+
+    const product = { name, price, image };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const index = cart.findIndex(item => item.name === product.name);
+    if (index !== -1) {
+      cart[index].quantity = (cart[index].quantity || 1) + 1;
+    } else {
+      product.quantity = 1;
+      cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${name} added to cart!`);
+  });
+});
+  function addToCart(product) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const index = cart.findIndex(item => item.name === product.name);
+  if (index !== -1) {
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
+  } else {
+    product.quantity = 1;
+    cart.push(product);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+}
+loadCart();
+</script>
 </body>
 </html>

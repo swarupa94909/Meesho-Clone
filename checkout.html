@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Meesho Clone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .checkout-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      color: #e91e63;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .payment-section {
+      margin-top: 30px;
+    }
+
+    .place-order-btn {
+      background-color: #e91e63;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .place-order-btn:hover {
+      background-color: #d0175a;
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    🧾 Checkout
+  </header>
+
+  <div class="checkout-container">
+    <h2>Delivery Details</h2>
+    <form id="checkoutForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" required>
+
+      <label for="city">City</label>
+      <input type="text" id="city" required>
+
+      <label for="pincode">Pincode</label>
+      <input type="text" id="pincode" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <div class="payment-section">
+        <h2>Payment Method</h2>
+        <select id="payment" required>
+          <option value="">-- Select Payment Method --</option>
+          <option value="cod">Cash on Delivery</option>
+          <option value="upi">UPI</option>
+          <option value="card">Credit/Debit Card</option>
+        </select>
+      </div>
+
+      <button type="submit" class="place-order-btn">Place Order</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Meesho Clone. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get cart items
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      // Get existing orders
+      let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+
+      // Add each cart item to orders
+      cart.forEach(item => {
+        orders.push({
+          name: item.name,
+          price: item.price,
+          status: "Confirmed"
+        });
+      });
+
+      // Save updated orders to localStorage
+      localStorage.setItem("orders", JSON.stringify(orders));
+
+      // Clear cart
+      localStorage.removeItem("cart");
+
+
+  <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("🎉 Order Placed Successfully!\nThank you for shopping with Meesho Clone.");
+      window.location.href = "index.html"; // Redirect to home page
+    });
+
+    function logout() {
+      // Clear user login info from localStorage
+      localStorage.removeItem("user"); // adjust if your login data key is different
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userName"); // Add this line
+      localStorage.removeItem("loggedInUser"); // Add this if you use it
+      localStorage.removeItem("name"); // In case stored separately
+
+      alert("🔒 You have been logged out!");
+      window.location.href = "login.html"; // or index.html if you don't have a login page
+    }
+  </script>
+
+</body>
+</html>
