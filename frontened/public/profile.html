@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Meesho Clone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h2 {
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .btn-save {
+      margin-top: 20px;
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-save:hover {
+      background-color: #d81b60;
+    }
+
+    .order-history {
+      margin-top: 40px;
+    }
+
+    .order-history h3 {
+      color: #e91e63;
+      border-bottom: 2px solid #e91e63;
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logout-btn {
+      margin-top: 30px;
+      background-color: white;
+      color: #e91e63;
+      border: 2px solid #e91e63;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .logout-btn:hover {
+      background-color: #fce4ec;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Personal Information</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" />
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" />
+
+    <button class="btn-save" onclick="saveChanges()">Save Changes</button>
+
+    <div class="order-history">
+      <h3>📋 Order History</h3>
+      <p>No orders found.</p>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Populate form from localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      document.getElementById("name").value = user.name || "";
+      document.getElementById("email").value = user.email || "";
+      document.getElementById("phone").value = user.mobile || "";
+    }
+
+    // Save updated user details to localStorage
+    function saveChanges() {
+      const updatedUser = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        mobile: document.getElementById("phone").value.trim(),
+      };
+
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      alert("✅ Profile updated successfully.");
+    }
+
+    // Logout: clear localStorage and redirect
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
