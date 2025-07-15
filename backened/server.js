@@ -19,6 +19,8 @@ const db = mysql.createConnection({
   user: "admin",
   password: "santoor123", // 🔐 Use environment variables in production
   database: "meesho",      // Ensure this DB exists in your RDS
+  port: 3306,                // ✅ Add this line
+  connectTimeout: 10000     // ✅ Optional: helps avoid early timeout
 });
 
 // ✅ ADD THIS LINE HERE for debugging:
