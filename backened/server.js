@@ -129,6 +129,9 @@ app.post("/api/login", (req, res) => {
 });
 
 // ✅ Start the server (bind to all interfaces)
+app.get("/", (req, res) => {
+  res.send("✅ Meesho Clone backend is running");
+});
 app.listen(port, '0.0.0.0', () => {
   console.log(`🚀 Server running on http://0.0.0.0:${port}`);
 });
