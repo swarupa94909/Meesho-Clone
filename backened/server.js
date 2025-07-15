@@ -8,24 +8,25 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-// Middleware
+// ✅ Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public"))); // Serve static files like HTML from /public
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files from /public
 
-// MySQL Connection to AWS RDS
+// ✅ MySQL Connection (AWS RDS)
 const db = mysql.createConnection({
   host: "rdb-1.cmtqgo44kx78.us-east-1.rds.amazonaws.com",
   user: "admin",
-  password: "santoor123", // 🔐 Use environment variables in production
-  database: "meesho",      // Ensure this DB exists in your RDS
-  port: 3306,                // ✅ Add this line
-  connectTimeout: 10000     // ✅ Optional: helps avoid early timeout
+  password: "santoor123",
+  database: "meesho",
+  port: 3306,
+  connectTimeout: 10000
 });
 
-// ✅ ADD THIS LINE HERE for debugging:
+// ✅ Log connection details
 console.log("🔍 Connecting to:", db.config.host, db.config.port);
 
+// ✅ Connect to RDS
 db.connect((err) => {
   if (err) {
     console.error("❌ MySQL connection error:", err);
@@ -34,7 +35,12 @@ db.connect((err) => {
   console.log("✅ Connected to RDS!");
 });
 
-// ✅ Signup Route
+// ✅ Health check route
+app.get("/", (req, res) => {
+  res.send("✅ Meesho Clone backend is running");
+});
+
+// ✅ Signup route
 app.post("/api/signup", async (req, res) => {
   const { name, email, mobile, password, confirmPassword } = req.body;
 
@@ -81,7 +87,7 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-// ✅ Login Route
+// ✅ Login route
 app.post("/api/login", (req, res) => {
   const { name, password } = req.body;
 
@@ -122,7 +128,7 @@ app.post("/api/login", (req, res) => {
   });
 });
 
-// ✅ Start server
-app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
+// ✅ Start the server (bind to all interfaces)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`🚀 Server running on http://0.0.0.0:${port}`);
 });
