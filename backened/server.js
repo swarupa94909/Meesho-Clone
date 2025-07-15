@@ -11,27 +11,32 @@ const port = 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public"))); // Serve HTML from /public
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files like HTML from /public
 
-// MySQL Connection
+// MySQL Connection to AWS RDS
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Saru@123", // Your MySQL root password
-  database: "meesho", // Make sure this DB exists
+  host: "rdb-1.cmtqgo44kx78.us-east-1.rds.amazonaws.com",
+  user: "admin",
+  password: "santoor123", // 🔐 Use environment variables in production
+  database: "meesho",      // Ensure this DB exists in your RDS
 });
+
+// ✅ ADD THIS LINE HERE for debugging:
+console.log("🔍 Connecting to:", db.config.host, db.config.port);
 
 db.connect((err) => {
   if (err) {
     console.error("❌ MySQL connection error:", err);
-  } else {
-    console.log("✅ Connected to MySQL Database");
+    return;
   }
+  console.log("✅ Connected to RDS!");
 });
 
-// Signup Route
+// ✅ Signup Route
 app.post("/api/signup", async (req, res) => {
   const { name, email, mobile, password, confirmPassword } = req.body;
+
+  console.log("📥 Signup request:", req.body);
 
   if (!name || !email || !mobile || !password || !confirmPassword) {
     return res.status(400).json({ message: "All fields are required" });
@@ -44,36 +49,48 @@ app.post("/api/signup", async (req, res) => {
   try {
     const checkQuery = "SELECT * FROM users WHERE email = ? OR mobile = ?";
     db.query(checkQuery, [email, mobile], async (err, results) => {
-      if (err) return res.status(500).json({ message: "Database error" });
+      if (err) {
+        console.error("❌ DB check error:", err);
+        return res.status(500).json({ message: "Database error during check" });
+      }
 
       if (results.length > 0) {
         return res.status(400).json({ message: "User already exists" });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
-      const insertQuery =
-        "INSERT INTO users (name, email, mobile, password) VALUES (?, ?, ?, ?)";
+      const insertQuery = "INSERT INTO users (name, email, mobile, password) VALUES (?, ?, ?, ?)";
       db.query(insertQuery, [name, email, mobile, hashedPassword], (err, result) => {
         if (err) {
           console.error("❌ DB insert error:", err);
           return res.status(500).json({ message: "Error creating user" });
         }
 
-        res.status(201).json({ message: "User registered successfully" });
+        console.log("✅ User inserted:", { name, email, mobile });
+        res.status(201).json({
+          message: "User registered successfully",
+          user: { name, email, mobile }
+        });
       });
     });
   } catch (error) {
+    console.error("❌ Unexpected signup error:", error);
     res.status(500).json({ message: "Signup failed" });
   }
 });
 
-// Login Route
+// ✅ Login Route
 app.post("/api/login", (req, res) => {
   const { name, password } = req.body;
 
+  console.log("🔐 Login attempt for:", name);
+
   const query = "SELECT * FROM users WHERE name = ?";
   db.query(query, [name], async (err, results) => {
-    if (err) return res.status(500).json({ message: "Database error" });
+    if (err) {
+      console.error("❌ Login DB error:", err);
+      return res.status(500).json({ message: "Database error during login" });
+    }
 
     if (results.length === 0) {
       return res.status(401).json({ message: "Invalid name or password" });
@@ -81,27 +98,29 @@ app.post("/api/login", (req, res) => {
 
     const user = results[0];
     const isPasswordValid = await bcrypt.compare(password, user.password);
+
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid name or password" });
     }
 
     const token = jwt.sign({ id: user.id }, "secretkey", { expiresIn: "1h" });
 
-    res.json({
-  message: "Login successful",
-  token,
-  user: {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    mobile: user.mobile
-  }
-});
+    console.log("✅ Login successful for:", name);
 
+    res.json({
+      message: "Login successful",
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        mobile: user.mobile
+      }
+    });
   });
 });
 
-// Start server
+// ✅ Start server
 app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`);
 });
