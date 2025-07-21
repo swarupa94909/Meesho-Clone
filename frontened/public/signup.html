@@ -119,11 +119,14 @@
 
       const userData = { name, email, mobile, password, confirmPassword };
 
-      fetch("http://localhost:3000/api/signup", {
+      fetch("10.0.4.203:3000/api/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
+        headers: {
+        "Content-Type": "application/json",
+         },
+      body: JSON.stringify(formData),
       })
+
       .then((res) => res.json())
       .then((data) => {
         alert(data.message);
