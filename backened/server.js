@@ -1,3 +1,4 @@
+require("dotenv").config(); // ✅ Load .env
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -6,21 +7,20 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // ✅ Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public"))); // Serve static files from /public
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 
 // ✅ MySQL Connection (AWS RDS)
 const db = mysql.createConnection({
-  host: "rdb-1.cmtqgo44kx78.us-east-1.rds.amazonaws.com",
-  user: "admin",
-  password: "santoor123",
-  database: "meesho",
-  port: 3306,
-  connectTimeout: 10000
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
 
 // ✅ Log connection details
@@ -35,12 +35,12 @@ db.connect((err) => {
   console.log("✅ Connected to RDS!");
 });
 
-// ✅ Health check route
+// ✅ Health check
 app.get("/", (req, res) => {
   res.send("✅ Meesho Clone backend is running");
 });
 
-// ✅ Signup route
+// ✅ Signup
 app.post("/api/signup", async (req, res) => {
   const { name, email, mobile, password, confirmPassword } = req.body;
 
@@ -87,7 +87,7 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-// ✅ Login route
+// ✅ Login
 app.post("/api/login", (req, res) => {
   const { name, password } = req.body;
 
@@ -111,7 +111,7 @@ app.post("/api/login", (req, res) => {
       return res.status(401).json({ message: "Invalid name or password" });
     }
 
-    const token = jwt.sign({ id: user.id }, "secretkey", { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
     console.log("✅ Login successful for:", name);
 
@@ -128,10 +128,7 @@ app.post("/api/login", (req, res) => {
   });
 });
 
-// ✅ Start the server (bind to all interfaces)
-app.get("/", (req, res) => {
-  res.send("✅ Meesho Clone backend is running");
-});
-app.listen(port, '0.0.0.0', () => {
+// ✅ Start the server
+app.listen(port, "0.0.0.0", () => {
   console.log(`🚀 Server running on http://0.0.0.0:${port}`);
 });
