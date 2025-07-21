@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Signup
-app.post("/api/signup", async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { name, email, mobile, password, confirmPassword } = req.body;
 
   console.log("📥 Signup request:", req.body);
@@ -88,7 +88,7 @@ app.post("/api/signup", async (req, res) => {
 });
 
 // ✅ Login
-app.post("/api/login", (req, res) => {
+app.post("/login", (req, res) => {
   const { name, password } = req.body;
 
   console.log("🔐 Login attempt for:", name);
