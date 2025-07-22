@@ -37,7 +37,7 @@ db.connect((err) => {
 
 // ✅ Health check
 app.get("/", (req, res) => {
-  res.send("✅ Meesho Clone backend is running");
+  res.status(200).send("✅ Meesho Clone backend is running");
 });
 
 // ✅ Signup
